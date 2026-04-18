@@ -122,6 +122,14 @@ button:focus-visible {
   font-weight: 400;
   font-size: 0.97rem;
   letter-spacing: 0.01em;
+  transition: color 0.15s ease, font-weight 0.15s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  text-decoration: none;
+  font-weight: 700;
+  color: #4a4a4a;
 }
 
 .nav-list a[aria-current="page"] {
@@ -150,7 +158,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.9fr);
   align-items: start;
-  gap: clamp(1.6rem, 4vw, 4rem);
+  gap: clamp(0.9rem, 2.2vw, 1.8rem);
 }
 
 .intro-text {
