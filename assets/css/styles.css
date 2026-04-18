@@ -34,6 +34,7 @@ body {
   color: var(--text);
   background: var(--bg);
   font-family: var(--font-body);
+  font-weight: 300;
   font-size: 0.9375rem;
   line-height: 1.7;
   text-rendering: optimizeLegibility;
@@ -119,7 +120,7 @@ button:focus-visible {
 .nav-list a {
   color: var(--text);
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 300;
   font-size: 0.97rem;
   letter-spacing: 0.01em;
   transition: color 0.15s ease, font-weight 0.15s ease;
@@ -158,7 +159,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(220px, 0.62fr);
   align-items: start;
-  gap: clamp(0.35rem, 1vw, 0.85rem);
+  gap: clamp(0.2rem, 0.8vw, 0.6rem);
 }
 
 .intro-text {
