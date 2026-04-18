@@ -1,15 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap");
+
 :root {
-  --bg: #f8f7f2;
-  --bg-soft: #f1eee6;
-  --text: #22211d;
-  --muted: #5b5953;
+  --bg: #ffffff;
+  --bg-soft: #ffffff;
+  --text: #000000;
+  --muted: #000000;
   --line: #d7d3c7;
-  --accent: #1f4a66;
-  --accent-soft: #e6eff4;
-  --card: #fffcf6;
+  --accent: #000000;
+  --accent-soft: #f2f2f2;
+  --card: #ffffff;
   --focus: #9d5d22;
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-  --font-body: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-display: "Roboto", "Segoe UI", sans-serif;
+  --font-body: "Open Sans", "Segoe UI", sans-serif;
   --shadow-soft: 0 10px 28px rgba(26, 24, 17, 0.08);
 }
 
@@ -30,10 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--text);
-  background:
-    radial-gradient(circle at 8% -8%, #ebf2e5 0%, rgba(235, 242, 229, 0) 44%),
-    radial-gradient(circle at 92% 0%, #f5ebe2 0%, rgba(245, 235, 226, 0) 36%),
-    var(--bg);
+  background: var(--bg);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.7;
@@ -85,7 +84,7 @@ button:focus-visible {
   z-index: 1000;
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
-  background: rgba(248, 247, 242, 0.9);
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .nav-wrap {
@@ -165,9 +164,12 @@ button:focus-visible {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  color: #181713;
+  color: var(--text);
   font-family: var(--font-display);
   line-height: 1.22;
 }
@@ -176,6 +178,14 @@ h1 {
   margin-top: 0.35rem;
   font-size: clamp(2rem, 5vw, 3.2rem);
   letter-spacing: -0.01em;
+}
+
+.intro-name .name-first {
+  font-weight: 700;
+}
+
+.intro-name .name-last {
+  font-weight: 400;
 }
 
 h2 {
@@ -190,7 +200,7 @@ h3 {
   margin-top: 0.9rem;
   margin-bottom: 1rem;
   font-size: clamp(1.08rem, 1.8vw, 1.2rem);
-  color: #2f2d29;
+  color: var(--text);
 }
 
 .intro-text p {
@@ -201,7 +211,7 @@ h3 {
 .profile-card {
   margin: 0;
   border-radius: 1rem;
-  background: linear-gradient(180deg, #f8f6ef, #f4f1e7);
+  background: #ffffff;
   border: 1px solid #ddd9cd;
   box-shadow: var(--shadow-soft);
   padding: 0.95rem;
@@ -262,7 +272,7 @@ h3 {
 
 .section-copy {
   margin-top: 0.6rem;
-  color: #3e3b34;
+  color: var(--text);
   max-width: 70ch;
 }
 
@@ -281,7 +291,7 @@ h3 {
 
 .card p {
   margin: 0.45rem 0 0;
-  color: #434038;
+  color: var(--text);
   max-width: 68ch;
 }
 
@@ -307,7 +317,7 @@ h3 {
   overflow: hidden;
   border-radius: 0.85rem;
   border: 1px solid #dbd5c6;
-  background: #fdfaf3;
+  background: #ffffff;
 }
 
 .gallery img {
@@ -333,11 +343,11 @@ h3 {
 
 .tag {
   font-size: 0.82rem;
-  color: #4b4438;
+  color: var(--text);
   border: 1px solid #d7d1c2;
   border-radius: 999px;
   padding: 0.2rem 0.58rem;
-  background: #f8f4ea;
+  background: #ffffff;
 }
 
 .site-footer {
@@ -345,7 +355,7 @@ h3 {
   padding: 1rem 0;
   color: var(--muted);
   font-size: 0.92rem;
-  background: rgba(241, 238, 230, 0.55);
+  background: #ffffff;
 }
 
 .site-footer p {
@@ -366,7 +376,7 @@ h3 {
 
 .not-found p {
   margin: 0;
-  color: #413e37;
+  color: var(--text);
 }
 
 .button-link {
@@ -459,7 +469,7 @@ h3 {
     padding: 0.4rem;
     border-radius: 0.8rem;
     border: 1px solid var(--line);
-    background: #fffef9;
+    background: #ffffff;
     box-shadow: var(--shadow-soft);
   }
 
