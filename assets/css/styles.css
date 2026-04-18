@@ -75,7 +75,7 @@ button:focus-visible {
 }
 
 .container {
-  width: min(900px, 84vw);
+  width: min(860px, 84vw);
   margin: 0 auto;
 }
 
@@ -157,9 +157,9 @@ button:focus-visible {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.62fr);
+  grid-template-columns: minmax(0, 1fr) 300px;
   align-items: start;
-  gap: clamp(0.2rem, 0.8vw, 0.6rem);
+  gap: clamp(0.9rem, 2.2vw, 2cm);
 }
 
 .intro-text {
@@ -219,26 +219,29 @@ h3 {
 
 .profile-card {
   margin: 0;
-  margin-top: 0.35rem;
-  max-width: 235px;
-  justify-self: start;
-  border-radius: 1rem;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
-  padding: 0.95rem;
+  margin-top: 0.2rem;
+  width: 300px;
+  max-width: 300px;
+  justify-self: end;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
 .profile-card img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.72rem;
+  border-radius: 0.32rem;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
 }
 
 .profile-card figcaption {
-  margin-top: 0.7rem;
+  margin-top: 0.85rem;
   color: var(--text);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 0.95rem;
 }
 
@@ -450,6 +453,7 @@ h3 {
   }
 
   .profile-card {
+    width: min(320px, 100%);
     max-width: 320px;
     justify-self: start;
   }
