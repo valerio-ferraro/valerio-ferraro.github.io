@@ -159,11 +159,12 @@ main {
 }
 .portrait img {
   position: absolute;
-  width: var(--portrait-width, 507.287%);
+  width: var(--portrait-width, 500.81%);
   max-width: none;
-  height: var(--portrait-height, 501.6%);
-  left: var(--portrait-x, -207.287%);
-  top: var(--portrait-y, -208%);
+  height: var(--portrait-height, 504.762%);
+  left: var(--portrait-x, -200%);
+  top: var(--portrait-y, -203.175%);
+  transform: translate(var(--gaze-x, 0px), var(--gaze-y, 0px));
   filter: none;
 }
 .portrait-fallback img {
