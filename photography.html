@@ -1,132 +1,199 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" id="top">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Photography | Valerio Rossi</title>
+    <title>Photography | Valerio Ferraro</title>
     <meta
       name="description"
-      content="A minimalist gallery of travel and documentary photography by Valerio Rossi."
+      content="A visual notebook by Valerio Ferraro. The photographic selection is in preparation."
     />
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-    <meta name="author" content="Valerio Rossi" />
-    <link
-      rel="canonical"
-      href="https://valerioferraro.github.io/photography.html"
-    />
-
-    <meta property="og:title" content="Photography | Valerio Rossi" />
-    <meta
-      property="og:description"
-      content="Selected images from field notes, travel, and urban documentary projects."
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://valerioferraro.github.io/photography.html"
-    />
-    <meta
-      property="og:image"
-      content="https://valerioferraro.github.io/images/og-cover.svg"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Photography | Valerio Rossi" />
-    <meta
-      name="twitter:description"
-      content="Selected images from field notes, travel, and urban documentary projects."
-    />
-    <meta
-      name="twitter:image"
-      content="https://valerioferraro.github.io/images/og-cover.svg"
-    />
-
+    <meta name="author" content="Valerio Ferraro" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f5f3ec" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="./assets/js/main.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container nav-wrap">
-        <button
-          class="menu-toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="primary-menu"
+      <a class="wordmark" href="./index.html" aria-label="Valerio Ferraro, home"
+        >vf<span class="wordmark-dot">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="./index.html"><span>01</span> About</a
+        ><a href="./research.html"><span>02</span> Research</a
+        ><a aria-current="page" href="./photography.html"
+          ><span>03</span> Photography</a
         >
-          Menu
-        </button>
-        <nav class="site-nav" data-nav aria-label="Primary">
-          <ul id="primary-menu" class="nav-list">
-            <li><a href="./index.html">About</a></li>
-            <li><a href="./research.html">Research</a></li>
-            <li><a href="./photography.html" aria-current="page">Photography</a></li>
-            <li><a href="./blog.html">Blog &amp; Writings</a></li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
+      <a class="header-contact" href="mailto:acferraro.valerio@gmail.com"
+        >Get in touch <span aria-hidden="true">↗</span></a
+      >
     </header>
-
-    <main id="main-content" class="site-main">
-      <div class="container page-grid">
-        <header class="section-header" data-reveal="1">
-          <p class="kicker">Photography</p>
-          <h1>Field Notes in Frames</h1>
-          <p class="section-copy">
-            A small curated collection of placeholder images. Replace these with your own photos
-            and descriptive alt text for accessibility.
-          </p>
-        </header>
-
-        <section class="gallery" aria-label="Photography gallery" data-reveal="2">
-          <figure>
-            <img src="./images/photo-01.svg" alt="Warm morning light over a quiet riverbank" />
-            <figcaption>Morning River</figcaption>
-          </figure>
-          <figure>
-            <img src="./images/photo-02.svg" alt="Dense city skyline under overcast light" />
-            <figcaption>City Layers</figcaption>
-          </figure>
-          <figure>
-            <img src="./images/photo-03.svg" alt="Mountain profile against a pale evening sky" />
-            <figcaption>Alpine Outline</figcaption>
-          </figure>
-          <figure>
-            <img src="./images/photo-04.svg" alt="Coastal road winding near deep blue water" />
-            <figcaption>Coastal Distance</figcaption>
-          </figure>
-          <figure>
-            <img src="./images/photo-05.svg" alt="Shadows crossing a quiet stone courtyard" />
-            <figcaption>Courtyard Geometry</figcaption>
-          </figure>
-          <figure>
-            <img src="./images/photo-06.svg" alt="Golden sunset fading behind field grass" />
-            <figcaption>Last Light</figcaption>
-          </figure>
-        </section>
+    <main id="main" class="section-wrap photography-main">
+      <header class="page-heading">
+        <p class="eyebrow">03 / A visual notebook</p>
+        <h1>Outside<br /><em>the model.</em></h1>
+        <div class="photo-heading-bottom">
+          <p>Another way of paying attention.</p>
+          <span class="mono">Light / Places / Passing moments</span>
+        </div>
+      </header>
+      <aside class="gallery-notice">
+        <span class="tiny-dot" aria-hidden="true"></span>
+        <p>
+          <strong>A photographic selection is taking shape.</strong> The images
+          below are illustrative studies, used while the portfolio is being
+          prepared.
+        </p>
+      </aside>
+      <div class="gallery-toolbar">
+        <span class="mono">06 illustrative studies</span>
+        <div class="view-controls" role="group" aria-label="Gallery layout">
+          <button data-layout="grid" aria-pressed="true">Grid</button
+          ><button data-layout="sequence" aria-pressed="false">Sequence</button>
+        </div>
       </div>
+      <section class="gallery" aria-label="Illustrative gallery studies">
+        <figure class="gallery-item">
+          <button
+            data-photo="0"
+            aria-label="Enlarge illustrative study: Morning river"
+          >
+            <img
+              src="./images/photo-01.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: Warm morning light over a riverbank"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">01</span><span>Morning river</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button
+            data-photo="1"
+            aria-label="Enlarge illustrative study: City layers"
+          >
+            <img
+              src="./images/photo-02.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: City skyline under an overcast sky"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">02</span><span>City layers</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button
+            data-photo="2"
+            aria-label="Enlarge illustrative study: Alpine outline"
+          >
+            <img
+              src="./images/photo-03.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: Mountain silhouettes against a pale sky"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">03</span><span>Alpine outline</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button
+            data-photo="3"
+            aria-label="Enlarge illustrative study: Coastal distance"
+          >
+            <img
+              src="./images/photo-04.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: Coastline and blue water"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">04</span><span>Coastal distance</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button
+            data-photo="4"
+            aria-label="Enlarge illustrative study: Courtyard geometry"
+          >
+            <img
+              src="./images/photo-05.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: Shadows in a stone courtyard"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">05</span><span>Courtyard geometry</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <button
+            data-photo="5"
+            aria-label="Enlarge illustrative study: Last light"
+          >
+            <img
+              src="./images/photo-06.svg"
+              width="1600"
+              height="1000"
+              alt="Illustration: Sunset over a field"
+              loading="lazy"
+            /><span class="image-open" aria-hidden="true">↗</span>
+          </button>
+          <figcaption>
+            <span class="mono">06</span><span>Last light</span
+            ><span class="study-label">Study</span>
+          </figcaption>
+        </figure>
+      </section>
+      <dialog class="lightbox" aria-label="Illustrative study viewer">
+        <div class="lightbox-top">
+          <span class="mono" data-photo-counter></span
+          ><button data-close aria-label="Close image viewer">Close ×</button>
+        </div>
+        <img data-lightbox-image alt="" />
+        <div class="lightbox-bottom">
+          <button data-prev aria-label="Previous image">← Previous</button>
+          <p data-photo-caption></p>
+          <button data-next aria-label="Next image">Next →</button>
+        </div>
+        <p class="lightbox-note mono">
+          Illustrative study · Portfolio in preparation
+        </p>
+      </dialog>
     </main>
-
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; <span data-year>2026</span> Valerio Rossi.</p>
+      <a class="footer-name" href="./index.html"
+        >Valerio Ferraro<span aria-hidden="true">.</span></a
+      >
+      <p>Economics, ideas &amp; observations.</p>
+      <div>
+        <a href="mailto:acferraro.valerio@gmail.com">Email ↗</a
+        ><a href="https://github.com/valerio-ferraro">GitHub ↗</a
+        ><a href="https://www.linkedin.com/in/valerioferraro-p1">LinkedIn ↗</a>
       </div>
+      <small>© <span data-year>2026</span> Valerio Ferraro</small
+      ><a class="top-link" href="#top">Back to top ↑</a>
     </footer>
-
-    <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

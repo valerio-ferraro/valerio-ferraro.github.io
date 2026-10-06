@@ -1,151 +1,218 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" id="top">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Valerio Ferraro | About</title>
+    <title>About | Valerio Ferraro</title>
     <meta
       name="description"
-      content="Valerio Ferraro is an aspiring economist interested in information, behavioral economics and finance, and political economy."
+      content="Economics researcher studying narratives, belief formation, financial decisions and political behaviour."
     />
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
     <meta name="author" content="Valerio Ferraro" />
-    <link rel="canonical" href="https://valerioferraro.github.io/" />
-
-    <meta property="og:title" content="Valerio Ferraro | About" />
-    <meta
-      property="og:description"
-      content="Academic profile, research interests, and contact details for Valerio Ferraro."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://valerioferraro.github.io/" />
-    <meta
-      property="og:image"
-      content="https://valerioferraro.github.io/images/og-cover.svg"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Valerio Ferraro | About" />
-    <meta
-      name="twitter:description"
-      content="Academic profile, research interests, and contact details for Valerio Ferraro."
-    />
-    <meta
-      name="twitter:image"
-      content="https://valerioferraro.github.io/images/og-cover.svg"
-    />
-
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#f5f3ec" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="./assets/js/main.js"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <div class="container nav-wrap">
-        <button
-          class="menu-toggle"
-          type="button"
-          data-menu-toggle
-          aria-expanded="false"
-          aria-controls="primary-menu"
-        >
-          Menu
-        </button>
-        <nav class="site-nav" data-nav aria-label="Primary">
-          <ul id="primary-menu" class="nav-list">
-            <li><a href="./index.html" aria-current="page">About</a></li>
-            <li><a href="./research.html">Research</a></li>
-            <li><a href="./photography.html">Photography</a></li>
-            <li><a href="./blog.html">Blog &amp; Writings</a></li>
-          </ul>
-        </nav>
-      </div>
+      <a class="wordmark" href="./index.html" aria-label="Valerio Ferraro, home"
+        >vf<span class="wordmark-dot">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a aria-current="page" href="./index.html"><span>01</span> About</a
+        ><a href="./research.html"><span>02</span> Research</a
+        ><a href="./photography.html"><span>03</span> Photography</a>
+      </nav>
+      <a class="header-contact" href="mailto:acferraro.valerio@gmail.com"
+        >Get in touch <span aria-hidden="true">↗</span></a
+      >
     </header>
-
-    <main id="main-content" class="site-main">
-      <section class="container hero-grid">
-        <article class="intro-text" data-reveal="1">
-          <h1><span class="name-bold">Valerio</span> <span class="name-normal">Ferraro</span></h1>
-          <p class="lede">Welcome!</p>
-          <p>
-            I am an aspiring economist interested in information, behavioral economics and finance,
-            and political economy.
+    <main id="main">
+      <section class="hero section-wrap" aria-labelledby="name">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-dot" aria-hidden="true"></span> Economics
+            researcher
           </p>
-          <p>
-            <a
-              class="working-paper-link"
-              href="https://www.dropbox.com/scl/fi/lms4n492zi5p9xsof7nsl/cv-valerio-ferraro-2026.pdf?rlkey=r3i9nlvvxp41ak14ve4bid730&st=7fm5ty2i&dl=0"
-              target="_blank"
-              rel="noopener noreferrer"
+          <h1 id="name">
+            Valerio<br /><em>Ferraro</em><span class="name-period">.</span>
+          </h1>
+          <p class="hero-statement">How we make sense<br />of the world.</p>
+          <p class="intro">
+            I study how people form beliefs, share narratives, and act on them.
+            My interests lie in behavioural economics, information, finance, and
+            political economy.
+          </p>
+          <div class="hero-links">
+            <a class="text-link" href="./research.html"
+              >Explore my research <span aria-hidden="true">↗</span></a
+            ><a
+              class="quiet-link"
+              href="https://www.dropbox.com/scl/fi/lms4n492zi5p9xsof7nsl/cv-valerio-ferraro-2026.pdf?rlkey=r3i9nlvvxp41ak14ve4bid730&amp;dl=0"
+              >Curriculum vitae ↗</a
             >
-              My CV
-            </a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="portrait-image">
+            <img
+              src="./images/valerio-ferraro.jpg"
+              width="1012"
+              height="1293"
+              alt="Valerio Ferraro"
+              fetchpriority="high"
+            />
+          </div>
+          <figcaption>
+            <span>01 / A face to the name</span
+            ><span aria-hidden="true">VF — 2026</span>
+          </figcaption>
+          <span class="portrait-margin" aria-hidden="true"
+            >ECONOMICS / A PERSONAL INDEX</span
+          >
+        </figure>
+        <div class="hero-bottom">
+          <span class="mono">Research &amp; other ways of looking</span
+          ><a href="#about">A little more about me ↓</a>
+        </div>
+      </section>
+      <section id="about" class="about-section section-wrap">
+        <div class="section-label">
+          <span>01.1</span>
+          <h2>A little context</h2>
+        </div>
+        <div class="about-copy">
+          <p class="large-copy">
+            I am interested in the simplified models people build to understand
+            the world, and what happens when those models shape markets and
+            politics.
           </p>
           <p>
-            <strong>Email:</strong>
-            <a href="mailto:acferraro.valerio@gmail.com">acferraro.valerio@gmail.com</a>
+            I combine economic theory and empirical methods with ideas from
+            psychology and anthropology. My work ranges from bank runs and
+            information disclosure to narratives, culture, and historical
+            financial records.
           </p>
-
-          <ul class="social-links">
-            <li>
-              <a href="mailto:acferraro.valerio@gmail.com" aria-label="Email">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fill="currentColor"
-                    d="M2 6.7A2.7 2.7 0 0 1 4.7 4h14.6A2.7 2.7 0 0 1 22 6.7v10.6a2.7 2.7 0 0 1-2.7 2.7H4.7A2.7 2.7 0 0 1 2 17.3Zm2 0v.3l8 5 8-5v-.3a.7.7 0 0 0-.7-.7H4.7a.7.7 0 0 0-.7.7Zm16 2.7-7.5 4.7a1 1 0 0 1-1 0L4 9.4v7.9c0 .4.3.7.7.7h14.6c.4 0 .7-.3.7-.7Z"
-                  />
-                </svg>
-                <span class="sr-only">Email</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fill="currentColor"
-                    d="M12 .7A12 12 0 0 0 8.2 24c.6.1.8-.2.8-.6v-2.2c-3.3.7-4-1.5-4-1.5-.6-1.3-1.4-1.7-1.4-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1 1.8 2.8 1.2 3.4.9.1-.8.4-1.2.7-1.5-2.7-.3-5.5-1.3-5.5-6A4.7 4.7 0 0 1 6.4 8a4.4 4.4 0 0 1 .1-3.1s1-.3 3.3 1.3a11.5 11.5 0 0 1 6 0c2.3-1.6 3.3-1.3 3.3-1.3.5 1 .5 2.1.1 3.1a4.7 4.7 0 0 1 1.2 3.3c0 4.7-2.8 5.7-5.5 6 .4.4.8 1 .8 2.1v3c0 .4.2.7.8.6A12 12 0 0 0 12 .7"
-                  />
-                </svg>
-                <span class="sr-only">GitHub</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/valerioferraro-p1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    fill="currentColor"
-                    d="M6.4 8.6A1.8 1.8 0 1 1 6.4 5a1.8 1.8 0 0 1 0 3.6M5 10h2.8v9.2H5V10Zm4.5 0h2.6v1.3h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 1.8 3.5 4.3v5.1h-2.8v-4.5c0-1.1 0-2.5-1.6-2.5s-1.8 1.2-1.8 2.4v4.6H9.5V10Z"
-                  />
-                </svg>
-                <span class="sr-only">LinkedIn</span>
-              </a>
-            </li>
-          </ul>
-        </article>
-
-        <figure class="profile-card" data-reveal="2">
-          <img src="./images/IMG_20260418_160656.png" alt="Portrait photo of Valerio Ferraro" />
-          <figcaption>Naples, Quito, Rome, Milan, ...</figcaption>
-        </figure>
+          <p>
+            I graduated with honours from Bocconi University’s MSc in Economic
+            and Social Sciences. My research experience includes work at
+            Bocconi’s CLEAN unit, a project on Renaissance Florentine banking,
+            and policy analysis at the
+            <a href="https://osservatoriocpi.unicatt.it/"
+              >Osservatorio sui Conti Pubblici Italiani</a
+            >.
+          </p>
+          <a
+            class="text-link"
+            href="https://www.dropbox.com/scl/fi/lms4n492zi5p9xsof7nsl/cv-valerio-ferraro-2026.pdf?rlkey=r3i9nlvvxp41ak14ve4bid730&amp;dl=0"
+            >View my CV <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section
+        class="interests-section section-wrap"
+        aria-labelledby="interests-title"
+      >
+        <div class="section-label">
+          <span>01.2</span>
+          <h2 id="interests-title">Questions I return to</h2>
+        </div>
+        <div class="interest-content">
+          <div
+            class="interest-tabs"
+            role="group"
+            aria-label="Explore research interests"
+          >
+            <button class="interest-tab" data-interest="0" aria-pressed="true">
+              01 <span>Beliefs &amp; narratives</span> ↗</button
+            ><button
+              class="interest-tab"
+              data-interest="1"
+              aria-pressed="false"
+            >
+              02 <span>Finance &amp; information</span> ↗</button
+            ><button
+              class="interest-tab"
+              data-interest="2"
+              aria-pressed="false"
+            >
+              03 <span>Culture &amp; behaviour</span> ↗
+            </button>
+          </div>
+          <div class="interest-display">
+            <svg class="thought-map" viewBox="0 0 500 230" aria-hidden="true">
+              <g class="map-lines">
+                <path
+                  d="M45 130L155 65L250 130L350 45L455 110M45 130L145 200L250 130L365 190L455 110M155 65L145 200M350 45L365 190M155 65L350 45M145 200L365 190"
+                />
+              </g>
+              <g class="map-nodes">
+                <circle cx="45" cy="130" r="5" />
+                <circle cx="155" cy="65" r="5" />
+                <circle cx="145" cy="200" r="5" />
+                <circle cx="250" cy="130" r="9" />
+                <circle cx="350" cy="45" r="5" />
+                <circle cx="365" cy="190" r="5" />
+                <circle cx="455" cy="110" r="5" />
+              </g>
+            </svg>
+            <p data-interest-copy aria-live="polite">
+              How do narratives form, spread, and change what people believe?
+            </p>
+            <span class="mono diagram-caption"
+              >A map of interests, always in progress.</span
+            >
+          </div>
+        </div>
+      </section>
+      <section class="selected-section section-wrap">
+        <div class="section-heading">
+          <div class="section-label">
+            <span>02</span>
+            <h2>Selected research</h2>
+          </div>
+          <a href="./research.html">All research ↗</a>
+        </div>
+        <a class="featured-paper" href="./research.html#academic"
+          ><span class="mono">Working paper<br />Financial economics</span>
+          <h3>
+            Paying to Run<span
+              >Withdrawal Fees and Effects on Banking Panic</span
+            >
+          </h3>
+          <span class="large-arrow" aria-hidden="true">↗</span></a
+        >
+      </section>
+      <section class="photo-teaser section-wrap">
+        <a href="./photography.html"
+          ><span class="mono">03 / Photography</span>
+          <h2>Outside the model<span aria-hidden="true"> ↗</span></h2>
+          <span>A visual notebook. Selection in progress.</span></a
+        >
+        <div class="teaser-images" aria-hidden="true">
+          <img src="./images/photo-05.svg" alt="" loading="lazy" /><img
+            src="./images/photo-03.svg"
+            alt=""
+            loading="lazy"
+          />
+        </div>
       </section>
     </main>
-
     <footer class="site-footer">
-      <div class="container">
-        <p>&copy; <span data-year>2026</span> Valerio Ferraro.</p>
+      <a class="footer-name" href="./index.html"
+        >Valerio Ferraro<span aria-hidden="true">.</span></a
+      >
+      <p>Economics, ideas &amp; observations.</p>
+      <div>
+        <a href="mailto:acferraro.valerio@gmail.com">Email ↗</a
+        ><a href="https://github.com/valerio-ferraro">GitHub ↗</a
+        ><a href="https://www.linkedin.com/in/valerioferraro-p1">LinkedIn ↗</a>
       </div>
+      <small>© <span data-year>2026</span> Valerio Ferraro</small
+      ><a class="top-link" href="#top">Back to top ↑</a>
     </footer>
-
-    <script src="./assets/js/main.js" defer></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-

@@ -1,83 +1,49 @@
-# Minimal Academic Personal Website
+# Valerio Ferraro — personal website
 
-Fast static multi-page site inspired by the provided reference screenshot.
+A static, English-language research website built with semantic HTML, CSS, vanilla JavaScript and Vite. Fonts are served locally. No analytics, cookies, or third-party embeds.
 
-## Stack
+## Preview and publication
 
-- HTML5 + CSS3 + vanilla JavaScript
-- Vite for local dev server and production build
-- GitHub Actions workflow for GitHub Pages deployment
+The redesign is on `design/editorial-preview`. Pushing this branch does **not** deploy GitHub Pages. The workflow also rejects manual deployment from non-main branches.
 
-## Included Pages
+The repository and this branch are public: source files and images are readable on GitHub. The running preview is bound to `127.0.0.1`, so the preview website is available only on the local computer.
 
-- `index.html` (About / Home)
-- `research.html`
-- `photography.html`
-- `blog.html` (Blog & Writings)
-- `404.html`
+The existing public website remains at https://valerio-ferraro.github.io/. Merging this branch into `main` will publish the redesign automatically; do this only when it is approved. Robots directives currently request no indexing; they are not access control.
 
-## SEO + Accessibility
+## Run
 
-- Title and meta description on every page
-- Open Graph and Twitter cards on every page
-- Canonical URLs on every page
-- `favicon.svg`
-- `public/sitemap.xml`
-- `public/robots.txt`
-- Semantic landmarks (`header`, `nav`, `main`, `footer`)
-- Skip link, keyboard-friendly menu, visible focus styles, alt text
+With Node.js and npm installed:
 
-## Run Locally
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open the URL shown by Vite (usually `http://localhost:5173`).
+Open http://127.0.0.1:4173/. For a production preview, stop the development server, then run:
 
-## Build Locally
-
-```bash
+```sh
 npm run build
 npm run preview
 ```
 
-## Deploy to GitHub Pages
+Both servers listen only on the local computer. If port 4173 is occupied, stop the existing preview or select another port.
 
-1. Push this `academic-site` folder as the root of a GitHub repository.
-2. Keep the workflow at `.github/workflows/deploy-github-pages.yml`.
-3. In GitHub: `Settings` -> `Pages` -> set `Source` to `GitHub Actions`.
-4. Push to `main`; deployment starts automatically.
+## Content
 
-## Configured Site URL
+- `index.html`: biography, supplied portrait, research interests, CV and contact links.
+- `research.html`: working paper and ten OCPI articles retained from the previous website, with their existing authors, dates and links. Academic and policy work are separate. Update the category counts when adding entries.
+- `photography.html`: six existing illustrative studies, explicitly identified as temporary. Replace the files and descriptions with the approved photographic selection later.
+- `blog.html`: an onward link to public writing, preserving the old address without fictional blog posts.
+- `404.html`: recovery links for missing pages.
+- `assets/css/styles.css`: responsive layout, type, colour and motion.
+- `assets/js/main.js`: research filters, interest selector and gallery viewer.
 
-The project is currently configured with:
+The biography is based on the supplied statement of purpose. It does not assert a PhD enrolment or current university appointment. The paper abstract is preserved from the prior site; verify it against the next paper version before publication.
 
-- `https://valerioferraro.github.io/`
+## Design and accessibility
 
-If your final GitHub username/repository is different, run this once from project root:
+Warm paper, dark ink and a muted olive accent. Libre Caslon Display is paired with DM Sans; both have SIL Open Font Licences in `public/fonts/`.
 
-```powershell
-$old = "https://valerioferraro.github.io"
-$new = "https://YOUR-USERNAME.github.io/YOUR-REPO"
-Get-ChildItem -Recurse -File -Include *.html,*.xml,*.txt,README.md | ForEach-Object {
-  (Get-Content $_.FullName -Raw).Replace($old, $new) | Set-Content $_.FullName
-}
-```
+Research is readable without JavaScript. With JavaScript, category URLs and browser history work together with accent-insensitive keyword search. The gallery uses the native modal dialog with Escape, arrow navigation and focus return. Motion follows the visitor's reduced-motion preference. All pages include a skip link, labelled navigation and visible keyboard focus.
 
-## Indexing Checklist
-
-After the site is live:
-
-1. Add your site to Google Search Console.
-2. Submit `https://YOUR-DOMAIN/sitemap.xml`.
-3. Request indexing for the home page.
-4. Repeat on Bing Webmaster Tools for faster discovery.
-
-
-
-
-
-
-
+Design references: [Web Style Guide](https://webstyleguide.com/), [web.dev responsive design](https://web.dev/learn/design), and [Practical Typography](https://practicaltypography.com/typography-in-ten-minutes.html).
