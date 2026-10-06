@@ -75,54 +75,62 @@ const portrait = document.querySelector("[data-portrait]");
 if (portrait) {
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const pointer = matchMedia("(pointer: fine)");
-  let targetX = 0,
-    targetY = 0,
-    x = 0,
-    y = 0,
+  const image = portrait.querySelector("img");
+  let row = 2, col = 2, targetRow = 2, targetCol = 2;
+  let frame = 0, lastStep = 0, ready = false, visible = true;
+  const draw = () => {
+    portrait.style.setProperty("--portrait-x", (-col * 100) + "%");
+    portrait.style.setProperty("--portrait-y", (-row * 100) + "%");
+    portrait.dataset.pose = row + "," + col;
+  };
+  const enabled = () => ready && visible && !motion.matches && pointer.matches && !document.hidden;
+  const tick = (time) => {
     frame = 0;
-  const render = () => {
-    x += (targetX - x) * 0.12;
-    y += (targetY - y) * 0.12;
-    portrait.style.setProperty("--rx", x.toFixed(3) + "deg");
-    portrait.style.setProperty("--ry", y.toFixed(3) + "deg");
-    if (Math.abs(x - targetX) + Math.abs(y - targetY) > 0.015)
-      frame = requestAnimationFrame(render);
-    else frame = 0;
+    if (!enabled()) return;
+    if (time - lastStep >= 65) {
+      row += Math.sign(targetRow - row);
+      col += Math.sign(targetCol - col);
+      draw();
+      lastStep = time;
+    }
+    if (row !== targetRow || col !== targetCol) frame = requestAnimationFrame(tick);
   };
-  const schedule = () => {
-    if (!frame) frame = requestAnimationFrame(render);
-  };
+  const schedule = () => { if (!frame && enabled()) frame = requestAnimationFrame(tick); };
   const reset = () => {
-    targetX = 0;
-    targetY = 0;
-    schedule();
+    cancelAnimationFrame(frame); frame = 0;
+    row = col = targetRow = targetCol = 2; lastStep = 0; draw();
   };
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      if (motion.matches || !pointer.matches || event.pointerType === "touch")
-        return;
-      const bounds = portrait.getBoundingClientRect();
-      targetY = Math.max(
-        -10,
-        Math.min(
-          10,
-          ((event.clientX - bounds.left - bounds.width / 2) / innerWidth) * 22,
-        ),
-      );
-      targetX = Math.max(
-        -7,
-        Math.min(
-          7,
-          (-(event.clientY - bounds.top - bounds.height / 2) / innerHeight) *
-            16,
-        ),
-      );
-      schedule();
-    },
-    { passive: true },
-  );
-  document.documentElement.addEventListener("pointerleave", reset);
+  const neutral = () => { targetRow = targetCol = 2; schedule(); };
+  // Hysteresis prevents pose flicker around a direction boundary.
+  const quantize = (value, previous) => {
+    const bounded = Math.max(0, Math.min(4, value));
+    return Math.abs(bounded - previous) > .62 ? Math.round(bounded) : previous;
+  };
+  window.addEventListener("pointermove", (event) => {
+    if (!enabled() || event.pointerType === "touch") return;
+    const bounds = portrait.getBoundingClientRect();
+    const dx = event.clientX - bounds.left - bounds.width / 2;
+    const dy = event.clientY - bounds.top - bounds.height / 2;
+    if (Math.hypot(dx, dy) < 55) { neutral(); return; }
+    targetCol = quantize(2 + dx / Math.max(130, innerWidth * .13), targetCol);
+    targetRow = quantize(2 + dy / Math.max(100, innerHeight * .15), targetRow);
+    schedule();
+  }, {passive:true});
+  document.documentElement.addEventListener("pointerleave", neutral);
   window.addEventListener("blur", reset);
+  window.addEventListener("resize", reset);
+  document.addEventListener("visibilitychange", reset);
   motion.addEventListener("change", reset);
+  pointer.addEventListener("change", reset);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (!visible) reset();
+    }).observe(portrait);
+  }
+  image.decode().then(() => {ready = true; draw();}).catch(() => {
+    // Keep the original photograph usable if the atlas fails to load.
+    portrait.classList.add("portrait-fallback");
+    image.src = "./images/valerio-ferraro.jpg";
+  });
 }
