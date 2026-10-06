@@ -138,20 +138,32 @@ main {
 }
 .portrait-space {
   padding: 12px 5px;
+  position: relative;
+  isolation: isolate;
+}
+.portrait-space::before {
+  content: "";
+  position: absolute;
+  inset: 14% 5% 2%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #e8e6e280, #f0efed35 55%, transparent 73%);
 }
 .portrait {
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  clip-path: inset(8px 12px 7px);
+  border-radius: 48% 48% 46% 46%;
+  -webkit-mask-image: radial-gradient(ellipse 50% 52% at 50% 48%, #000 78%, #000c 89%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 52% at 50% 48%, #000 78%, #000c 89%, transparent 100%);
 }
 .portrait img {
   position: absolute;
-  width: 500%;
+  width: var(--portrait-width, 507.287%);
   max-width: none;
-  height: 500%;
-  left: var(--portrait-x, -200%);
-  top: var(--portrait-y, -200%);
+  height: var(--portrait-height, 501.6%);
+  left: var(--portrait-x, -207.287%);
+  top: var(--portrait-y, -208%);
   filter: none;
 }
 .portrait-fallback img {

@@ -78,16 +78,25 @@ if (portrait) {
   const image = portrait.querySelector("img");
   let row = 2, col = 2, targetRow = 2, targetCol = 2;
   let frame = 0, lastStep = 0, ready = false, visible = true;
+  // Generated cells have slightly uneven margins; these bounds retain the hair
+  // and torso without exposing neighbouring frames.
+  const columns = [0, 261, 512, 759, 1008, 1254];
+  const rows = [0, 272, 520, 770, 1014, 1254];
+  let lastPointer = null;
   const draw = () => {
-    portrait.style.setProperty("--portrait-x", (-col * 100) + "%");
-    portrait.style.setProperty("--portrait-y", (-row * 100) + "%");
+    const width = columns[col + 1] - columns[col];
+    const height = rows[row + 1] - rows[row];
+    portrait.style.setProperty("--portrait-width", (1254 / width * 100) + "%");
+    portrait.style.setProperty("--portrait-height", (1254 / height * 100) + "%");
+    portrait.style.setProperty("--portrait-x", (-columns[col] / width * 100) + "%");
+    portrait.style.setProperty("--portrait-y", (-rows[row] / height * 100) + "%");
     portrait.dataset.pose = row + "," + col;
   };
   const enabled = () => ready && visible && !motion.matches && pointer.matches && !document.hidden;
   const tick = (time) => {
     frame = 0;
     if (!enabled()) return;
-    if (time - lastStep >= 65) {
+    if (time - lastStep >= 42) {
       row += Math.sign(targetRow - row);
       col += Math.sign(targetCol - col);
       draw();
@@ -104,19 +113,35 @@ if (portrait) {
   // Hysteresis prevents pose flicker around a direction boundary.
   const quantize = (value, previous) => {
     const bounded = Math.max(0, Math.min(4, value));
-    return Math.abs(bounded - previous) > .62 ? Math.round(bounded) : previous;
+    return Math.abs(bounded - previous) > .56 ? Math.round(bounded) : previous;
+  };
+  const track = (clientX, clientY) => {
+    if (!enabled()) return;
+    const bounds = portrait.getBoundingClientRect();
+    const dx = clientX - bounds.left - bounds.width / 2;
+    const dy = clientY - bounds.top - bounds.height * .43;
+    const distance = Math.hypot(dx, dy);
+    if (distance < 18) { neutral(); return; }
+    // Direction is measured around the eyes, not against the entire viewport.
+    // A square-normalized vector keeps cardinal poses reachable at all angles.
+    const span = Math.max(Math.abs(dx), Math.abs(dy), 1);
+    const strength = Math.min(1, (distance - 18) / (bounds.width * .42));
+    targetCol = quantize(2 + 2 * dx / span * strength, targetCol);
+    targetRow = quantize(2 + 2 * dy / span * strength, targetRow);
+    schedule();
   };
   window.addEventListener("pointermove", (event) => {
-    if (!enabled() || event.pointerType === "touch") return;
-    const bounds = portrait.getBoundingClientRect();
-    const dx = event.clientX - bounds.left - bounds.width / 2;
-    const dy = event.clientY - bounds.top - bounds.height / 2;
-    if (Math.hypot(dx, dy) < 55) { neutral(); return; }
-    targetCol = quantize(2 + dx / Math.max(130, innerWidth * .13), targetCol);
-    targetRow = quantize(2 + dy / Math.max(100, innerHeight * .15), targetRow);
-    schedule();
+    if (event.pointerType === "touch") return;
+    lastPointer = [event.clientX, event.clientY];
+    track(...lastPointer);
   }, {passive:true});
-  document.documentElement.addEventListener("pointerleave", neutral);
+  window.addEventListener("scroll", () => {
+    if (lastPointer) track(...lastPointer);
+  }, {passive:true});
+  document.documentElement.addEventListener("pointerleave", () => {
+    lastPointer = null;
+    neutral();
+  });
   window.addEventListener("blur", reset);
   window.addEventListener("resize", reset);
   document.addEventListener("visibilitychange", reset);
