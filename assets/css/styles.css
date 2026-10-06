@@ -1,11 +1,11 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #262626;
-  background: #fafafa;
+  background: #fefefe;
   font-synthesis: none;
   font-size: 17px;
   line-height: 1.6;
-  --accent: #a02d25;
+  --accent: #1545ff;
   --line: #dedede;
 }
 * {
@@ -179,7 +179,7 @@ main {
 }
 .occupation {
   margin: 0 0 26px;
-  color: var(--accent);
+  color: #626262;
   font-size: 1rem;
 }
 .intro-copy > p:not(.occupation) {
@@ -265,6 +265,7 @@ details p {
 }
 .text-link {
   display: inline-block;
+  color: var(--accent);
 }
 .policy-entry {
   padding: 24px 0;
@@ -272,6 +273,7 @@ details p {
 }
 .policy-entry h3 a {
   text-decoration: none;
+  color: var(--accent);
 }
 .policy-entry .entry-meta {
   margin-top: 9px;
@@ -315,7 +317,7 @@ details p {
 }
 .lightbox {
   border: 0;
-  background: #fafafa;
+  background: #fefefe;
   width: min(1100px, 94vw);
   max-height: 94vh;
   padding: 20px;
