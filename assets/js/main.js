@@ -1,78 +1,3 @@
-document.querySelectorAll("[data-year]").forEach((el) => {
-  el.textContent = new Date().getFullYear();
-});
-
-const questions = [
-  "How do narratives form, spread, and change what people believe?",
-  "How does information shape financial decisions and the risk of a bank run?",
-  "How do culture and historical experience shape political and economic behaviour?",
-];
-document.querySelectorAll("[data-interest]").forEach((button) => {
-  button.addEventListener("click", () => {
-    document
-      .querySelectorAll("[data-interest]")
-      .forEach((item) =>
-        item.setAttribute("aria-pressed", String(item === button)),
-      );
-    document.querySelector("[data-interest-copy]").textContent =
-      questions[Number(button.dataset.interest)];
-    document.querySelector(".interest-display").dataset.active =
-      button.dataset.interest;
-  });
-});
-
-const search = document.querySelector("#research-search");
-if (search) {
-  const normalize = (text) =>
-    text
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase();
-  const groups = [...document.querySelectorAll("[data-category]")];
-  const applyFilters = () => {
-    const category = ["academic", "policy"].includes(location.hash.slice(1))
-      ? location.hash.slice(1)
-      : "all";
-    const words = normalize(search.value.trim()).split(/\s+/).filter(Boolean);
-    let count = 0;
-    groups.forEach((group) => {
-      let visible = 0;
-      group.querySelectorAll("[data-entry]").forEach((entry) => {
-        const matches =
-          (category === "all" || group.dataset.category === category) &&
-          words.every((word) => normalize(entry.textContent).includes(word));
-        entry.hidden = !matches;
-        if (matches) {
-          count++;
-          visible++;
-        }
-      });
-      group.hidden = !visible;
-    });
-    document.querySelectorAll("[data-filter]").forEach((link) => {
-      if (link.dataset.filter === category)
-        link.setAttribute("aria-current", "true");
-      else link.removeAttribute("aria-current");
-    });
-    document.querySelector("[data-search-status]").textContent =
-      count +
-      (count === 1 ? " work" : " works") +
-      (words.length ? " found" : "");
-    document.querySelector(".empty-search").hidden = count > 0;
-  };
-  search.addEventListener("input", applyFilters);
-  document.querySelectorAll("[data-filter]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      history.pushState(null, "", link.getAttribute("href"));
-      applyFilters();
-    });
-  });
-  window.addEventListener("hashchange", applyFilters);
-  window.addEventListener("popstate", applyFilters);
-  applyFilters();
-}
-
 const gallery = document.querySelector(".gallery");
 if (gallery) {
   document.querySelectorAll("[data-layout]").forEach((button) => {
@@ -100,11 +25,7 @@ if (gallery) {
     target.alt = source.alt;
     dialog.querySelector("[data-photo-caption]").textContent = triggers[current]
       .closest("figure")
-      .querySelector("figcaption span:nth-child(2)").textContent;
-    dialog.querySelector("[data-photo-counter]").textContent =
-      String(current + 1).padStart(2, "0") +
-      " / " +
-      String(triggers.length).padStart(2, "0");
+      .querySelector("figcaption").textContent;
   };
   triggers.forEach((button, index) =>
     button.addEventListener("click", () => {
@@ -149,4 +70,59 @@ if (gallery) {
     document.body.classList.remove("modal-open");
     opener?.focus();
   });
+}
+const portrait = document.querySelector("[data-portrait]");
+if (portrait) {
+  const motion = matchMedia("(prefers-reduced-motion: reduce)");
+  const pointer = matchMedia("(pointer: fine)");
+  let targetX = 0,
+    targetY = 0,
+    x = 0,
+    y = 0,
+    frame = 0;
+  const render = () => {
+    x += (targetX - x) * 0.12;
+    y += (targetY - y) * 0.12;
+    portrait.style.setProperty("--rx", x.toFixed(3) + "deg");
+    portrait.style.setProperty("--ry", y.toFixed(3) + "deg");
+    if (Math.abs(x - targetX) + Math.abs(y - targetY) > 0.015)
+      frame = requestAnimationFrame(render);
+    else frame = 0;
+  };
+  const schedule = () => {
+    if (!frame) frame = requestAnimationFrame(render);
+  };
+  const reset = () => {
+    targetX = 0;
+    targetY = 0;
+    schedule();
+  };
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      if (motion.matches || !pointer.matches || event.pointerType === "touch")
+        return;
+      const bounds = portrait.getBoundingClientRect();
+      targetY = Math.max(
+        -10,
+        Math.min(
+          10,
+          ((event.clientX - bounds.left - bounds.width / 2) / innerWidth) * 22,
+        ),
+      );
+      targetX = Math.max(
+        -7,
+        Math.min(
+          7,
+          (-(event.clientY - bounds.top - bounds.height / 2) / innerHeight) *
+            16,
+        ),
+      );
+      schedule();
+    },
+    { passive: true },
+  );
+  document.documentElement.addEventListener("pointerleave", reset);
+  window.addEventListener("blur", reset);
+  motion.addEventListener("change", reset);
 }
