@@ -1,0 +1,35 @@
+{
+  "version": "liveportrait-81-v1",
+  "columns": 9,
+  "rows": 9,
+  "neutralColumn": 4,
+  "neutralRow": 4,
+  "atlas": {
+    "src": "desktop-c35a306078.webp",
+    "cellWidth": 256,
+    "cellHeight": 256,
+    "width": 2304,
+    "height": 2304
+  },
+  "mobileAtlas": {
+    "src": "mobile-94ea279b20.webp",
+    "cellWidth": 160,
+    "cellHeight": 160,
+    "width": 1440,
+    "height": 1440
+  },
+  "fallback": "neutral-dd9d9658ab.webp",
+  "eyePosition": {
+    "x": 0.49,
+    "y": 0.49
+  },
+  "motion": {
+    "headYawDegrees": 12,
+    "headPitchDegrees": 8,
+    "eyeControlX": 10,
+    "eyeControlY": 7
+  },
+  "source": "PICT_20260903_113453.JPG",
+  "sourceSha256": "cc3d8a4a1fe40b604eeec989f5b4829f7b25b84fc058b891c86a288ef0db251b",
+  "generation": "LivePortrait offline CPU; source appearance and expression cached; matched head and eye controls; no beauty edits"
+}

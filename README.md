@@ -4,11 +4,11 @@ A static, English-language research website built with semantic HTML, CSS, vanil
 
 ## Preview and publication
 
-The redesign is on `design/editorial-preview`. Pushing this branch does **not** deploy GitHub Pages. The workflow also rejects manual deployment from non-main branches.
+Work continues on `design/editorial-preview`. Pushing this branch runs build checks; GitHub Pages deploys only from `main`.
 
 The repository and this branch are public: source files and images are readable on GitHub. The running preview is bound to `127.0.0.1`, so the preview website is available only on the local computer.
 
-The existing public website remains at https://valerio-ferraro.github.io/. Merging this branch into `main` will publish the redesign automatically; do this only when it is approved. Robots directives currently request no indexing; they are not access control.
+The public website is at https://valerio-ferraro.github.io/. Updating `main` publishes the corresponding build automatically; publish only reviewed changes. Robots directives currently request no indexing; they are not access control.
 
 ## Run
 
@@ -44,6 +44,10 @@ The biography is based on the supplied statement of purpose. It does not assert 
 
 Near-white background, charcoal text and a restrained red accent. A single system sans-serif family is used throughout. The supplied portrait retains its original colour.
 
-Research and section links work without JavaScript. The portrait uses the approved 25-pose colour atlas (`public/images/portrait-directions-v11.png`), generated from PICT_20260903_113453.JPG through a separate illustrated-photorealistic frontal master. Pointer position selects a row and column with independent angular mappings measured around the eyes, a 12px neutral zone and hysteresis. Adjacent poses advance at a minimum 30 ms interval (display-refresh dependent), without crossfading faces. A damped whole-cutout translation of at most 1.6px horizontally and 1.1px vertically retains fine pointer response inside a pose; it does not simulate pupils or warp facial features. Eye direction remains baked into each image, not independent continuous pupil tracking or a true 3D model. A feathered oval mask softens the cutout. Cell bounds match the 1237 by 1272 atlas. The central pose remains available without JavaScript, on touch devices and with reduced motion. Movement resets when focus or visibility is lost; animation stops once settled. Failed atlas loading falls back to `portrait-master-v11.png`. The gallery uses a native modal dialog with Escape, arrow navigation and focus return. All pages include a skip link, labelled navigation and visible keyboard focus.
+Research and section links work without JavaScript. The portrait uses an 81-pose grid (9 × 9) generated directly from the supplied original PICT_20260903_113453.JPG with LivePortrait, without creating a separately restyled master. The offline model keeps the original source appearance/expression while varying head yaw by ±12 degrees, pitch by ±8 degrees, and eye direction together. These are model-generated approximations; they are not exact untouched photographs or a reconstructed 3D head. The no-JavaScript, reduced-motion, loading and failure fallback is a direct crop of the original photo.
+
+`public/images/portrait-live/manifest.json` defines the two WebP atlases, cell dimensions, neutral pose and eye midpoint. Desktop cells are 256 × 256; phone/coarse-pointer cells are 160 × 160. A canvas draws only the selected frame; a critically damped controller smooths pose changes without crossfading faces or adding synthetic pupil overlays. Mouse movement follows the pointer; touch interaction over the portrait preserves normal page scrolling. Movement returns to neutral when focus or visibility is lost, and animation stops once settled. Reduced-motion visitors do not download an atlas. Asset filenames are content-hashed. No runtime AI, tracking, external calls or GPU server is required by visitors. Offline generation ran locally on CPU using the MIT-licensed LivePortrait human models; attribution is stored with the assets.
+
+The existing feathered oval mask softens the portrait. The gallery uses a native modal dialog with Escape, arrow navigation and focus return. All pages include a skip link, labelled navigation and visible keyboard focus.
 
 Design references supplied by Valerio: [Lynn Fisher](https://lynnandtonic.com/), [Jack McDade](https://jackmcdade.com/), [Tim Rodenbröker](https://timrodenbroeker.de/), and [Ahmed Dahbi](https://dahbiahmed.com/). No source code or creative assets were copied from these sites.
