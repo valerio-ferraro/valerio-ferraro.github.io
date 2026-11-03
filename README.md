@@ -1,6 +1,6 @@
 # Valerio Ferraro — personal website
 
-A static, English-language research website built with semantic HTML, CSS, vanilla JavaScript and Vite. Uses system typography. No analytics, cookies, or third-party embeds.
+A static, English-language personal website built with semantic HTML, CSS, vanilla JavaScript and Vite. Fonts are self-hosted. No analytics, cookies, or third-party embeds.
 
 ## Preview and publication
 
@@ -31,18 +31,21 @@ Both servers listen only on the local computer. If port 4173 is occupied, stop t
 ## Content
 
 - `index.html`: biography, supplied portrait, research interests, CV and contact links.
-- `research.html`: working paper and ten OCPI articles retained from the previous website, with their existing authors, dates and links. Academic and policy work are separate.
-- `photography.html`: six existing illustrative studies, explicitly identified as temporary. Replace the files and descriptions with the approved photographic selection later.
+- `research.html`: working paper and sixteen OCPI articles, with their existing authors, dates and links. Academic and policy work are separate.
+- `photography.html`: a white photography environment with six existing illustrative placeholders. Contact sheet and editorial sequence views preserve image proportions. Replace the files and descriptions with the approved photographic selection later.
 - `blog.html`: an onward link to public writing, preserving the old address without fictional blog posts.
 - `404.html`: recovery links for missing pages.
 - `assets/css/styles.css`: responsive layout, type, colour and motion.
+- `assets/css/photography.css`: the photography page's separate typography, image layout and full-screen viewer.
 - `assets/js/main.js`: pointer-responsive portrait and gallery viewer.
 
 The biography is based on the supplied statement of purpose. It does not assert a PhD enrolment or current university appointment. The paper abstract is preserved from the prior site; verify it against the next paper version before publication.
 
 ## Design and accessibility
 
-Near-white background, charcoal text and a restrained red accent. A single system sans-serif family is used throughout. The supplied portrait retains its original colour.
+Home uses a near-white background, charcoal text and the supplied colour portrait. Research retains its ordered layout and system sans-serif body text; academic and policy article titles use self-hosted EB Garamond italic. The exact ochre accent is RGB(255, 191, 24), `#ffbf18`. On white, dark link text with ochre underlines keeps the accent readable.
+
+Photography uses pure white, dark text, DM Sans navigation/captions and Libre Caslon Display for its heading. The default contact sheet gives a complete overview; an optional editorial sequence alternates larger frames and pairs. The full-screen viewer supports Escape, arrow keys, touch swipes, image counts and focus return. Native image links remain available without JavaScript. The six studies remain explicitly identified as illustrations rather than Valerio's photographs. All fonts are served locally with their licenses.
 
 Research and section links work without JavaScript. The portrait uses an 81-pose grid (9 × 9) generated directly from the supplied original PICT_20260903_113453.JPG with LivePortrait, without creating a separately restyled master. The offline model keeps the original source appearance/expression while varying head yaw by ±12 degrees, pitch by ±8 degrees, and eye direction together. These are model-generated approximations; they are not exact untouched photographs or a reconstructed 3D head. The no-JavaScript, reduced-motion, loading and failure fallback is a direct crop of the original photo.
 

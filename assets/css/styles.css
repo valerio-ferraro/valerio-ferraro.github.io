@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/eb-garamond-italic-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #262626;
@@ -5,7 +12,7 @@
   font-synthesis: none;
   font-size: 17px;
   line-height: 1.6;
-  --accent: #1545ff;
+  --accent: #ffbf18;
   --line: #dedede;
 }
 * {
@@ -25,8 +32,9 @@ a {
   text-decoration-thickness: 1px;
 }
 a:hover {
-  color: var(--accent);
-  text-decoration-color: currentColor;
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 button {
   font: inherit;
@@ -38,8 +46,9 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid #262626;
   outline-offset: 5px;
+  box-shadow: 0 0 0 5px var(--accent);
 }
 img {
   display: block;
@@ -99,8 +108,15 @@ main,
   font-size: 0.95rem;
 }
 .site-header nav a[aria-current] {
-  color: var(--accent);
+  color: inherit;
   text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+.site-header nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
   text-underline-offset: 8px;
 }
 main {
@@ -177,12 +193,7 @@ main {
 .intro-copy h1 {
   white-space: nowrap;
 }
-.occupation {
-  margin: 0 0 26px;
-  color: #626262;
-  font-size: 1rem;
-}
-.intro-copy > p:not(.occupation) {
+.intro-copy > p {
   max-width: 560px;
 }
 .contact-links {
@@ -207,7 +218,9 @@ main {
 .paper-link {
   display: block;
   margin-top: 12px;
-  color: var(--accent);
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 .paper-link + p {
   margin-top: 20px;
@@ -229,13 +242,24 @@ main {
   margin-bottom: 28px;
 }
 .paper-content h3 {
-  font-size: 1.65rem;
-  letter-spacing: -0.025em;
+  font-size: 1.9rem;
+  letter-spacing: -0.015em;
   margin: 8px 0 20px;
 }
+.paper-content h3,
+.policy-entry h3 {
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.22;
+}
+.policy-entry h3 { font-size: 1.4rem; }
 .paper-content h3 a {
-  color: var(--accent);
-  text-decoration: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: .065em;
+  text-underline-offset: .14em;
 }
 .paper-content > p {
   max-width: 700px;
@@ -265,16 +289,23 @@ details p {
 }
 .text-link {
   display: inline-block;
-  color: var(--accent);
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 .policy-entry {
   padding: 24px 0;
   border-bottom: 1px solid var(--line);
 }
 .policy-entry h3 a {
-  text-decoration: none;
-  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: .065em;
+  text-underline-offset: .14em;
+  color: inherit;
 }
+.paper-content h3 a:hover,
+.policy-entry h3 a:hover { background: #ffbf1824; }
 .policy-entry .entry-meta {
   margin-top: 9px;
 }
@@ -420,9 +451,6 @@ details p {
     font-size: 2.75rem;
     white-space: normal;
   }
-  .occupation {
-    margin-bottom: 23px;
-  }
   .home-section {
     display: block;
     padding: 25px 0;
@@ -442,7 +470,7 @@ details p {
     margin-top: 44px;
   }
   .paper-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
   .lightbox {
     padding: 10px;
