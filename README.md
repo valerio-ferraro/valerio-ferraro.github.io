@@ -43,7 +43,7 @@ The biography is based on the supplied statement of purpose. It does not assert 
 
 ## Design and accessibility
 
-Home uses a near-white background, charcoal text and the supplied colour portrait. Research retains its ordered layout and system sans-serif body text; academic and policy article titles use self-hosted EB Garamond italic. The exact ochre accent is RGB(255, 191, 24), `#ffbf18`. On white, dark link text with ochre underlines keeps the accent readable.
+Home uses a near-white background, charcoal text and the supplied colour portrait. Research retains its ordered layout and system sans-serif body text. Its main heading uses self-hosted TeX Gyre Pagella Italic, the approved free Palatino-style alternative to Palatino eText Italic; academic and policy article titles use upright Computer Modern (CMU Serif Roman), the traditional LaTeX look. Both fonts are self-hosted with their licenses. The exact ochre accent is RGB(255, 191, 24), `#ffbf18`. On white, dark link text with ochre underlines keeps the accent readable.
 
 Photography uses pure white, dark text, DM Sans navigation/captions and Libre Caslon Display for its heading. The default contact sheet gives a complete overview; an optional editorial sequence alternates larger frames and pairs. The full-screen viewer supports Escape, arrow keys, touch swipes, image counts and focus return. Native image links remain available without JavaScript. The six studies remain explicitly identified as illustrations rather than Valerio's photographs. All fonts are served locally with their licenses.
 
