@@ -1,0 +1,45 @@
+/* Native navigation keeps real links, history and scroll restoration intact. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .site-header .wordmark { view-transition-name: site-wordmark; }
+  .site-header nav a[href$="index.html"] { view-transition-name: nav-about; }
+  .site-header nav a[href$="research.html"] { view-transition-name: nav-research; }
+  .site-header nav a[href$="photography.html"] { view-transition-name: nav-photography; }
+  main h1 { view-transition-name: page-heading; }
+
+  /* Each label travels independently as the spacing and type change. */
+  ::view-transition-group(*) {
+    animation-duration: 240ms;
+    animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 240ms;
+    animation-timing-function: ease-out;
+  }
+  ::view-transition-group(root) { animation: none; }
+  ::view-transition-old(root) { animation: page-out 160ms ease-out both; }
+  ::view-transition-new(root) { animation: page-in 220ms ease-out both; }
+  ::view-transition-old(page-heading) { animation: page-out 90ms ease-out both; }
+
+  /* A transition never delays the next tap or keyboard action. */
+  ::view-transition { pointer-events: none; }
+}
+
+@keyframes page-out {
+  to { opacity: 0; }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

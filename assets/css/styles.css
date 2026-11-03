@@ -1,17 +1,5 @@
-@font-face {
-  font-family: "TeX Gyre Pagella";
-  src: url("/fonts/tex-gyre-pagella-italic.woff2") format("woff2");
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Computer Modern";
-  src: url("/fonts/computer-modern-roman.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+@import "./transitions.css";
+
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #262626;

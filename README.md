@@ -37,7 +37,9 @@ Both servers listen only on the local computer. If port 4173 is occupied, stop t
 - `404.html`: recovery links for missing pages.
 - `assets/css/styles.css`: responsive layout, type, colour and motion.
 - `assets/css/photography.css`: the photography page's separate typography, image layout and full-screen viewer.
+- `assets/css/transitions.css`: shared page and gallery transitions.
 - `assets/js/main.js`: pointer-responsive portrait and gallery viewer.
+- `assets/js/navigation.js`: destination preparation on navigation intent.
 
 The biography is based on the supplied statement of purpose. It does not assert a PhD enrolment or current university appointment. The paper abstract is preserved from the prior site; verify it against the next paper version before publication.
 
@@ -46,6 +48,8 @@ The biography is based on the supplied statement of purpose. It does not assert 
 Home uses a near-white background, charcoal text and the supplied colour portrait. Research retains its ordered layout and system sans-serif body text. Its main heading uses self-hosted TeX Gyre Pagella Italic, the approved free Palatino-style alternative to Palatino eText Italic; academic and policy article titles use upright Computer Modern (CMU Serif Roman), the traditional LaTeX look. Both fonts are self-hosted with their licenses. The exact ochre accent is RGB(255, 191, 24), `#ffbf18`. On white, dark link text with ochre underlines keeps the accent readable.
 
 Photography uses pure white, dark text, DM Sans navigation/captions and Libre Caslon Display for its heading. The default contact sheet gives a complete overview; an optional editorial sequence alternates larger frames and pairs. The full-screen viewer supports Escape, arrow keys, touch swipes, image counts and focus return. Native image links remain available without JavaScript. The six studies remain explicitly identified as illustrations rather than Valerio's photographs. All fonts are served locally with their licenses.
+
+Page changes use native cross-document View Transitions: the wordmark, navigation labels and main heading move between their positions over 240ms while the remaining content blends in. The production build embeds each environment's WOFF2 fonts in its own blocking stylesheet, without a second font request. Before painting, the small navigation module creates loaded binary FontFaces from those sources, so the transition captures final text metrics. The CSS remains a complete font-loading fallback without JavaScript. Home downloads neither Photography's nor Research's fonts. Photography's fonts are compressed by about 60% compared with the previous TTF files. Where supported, the browser prerenders navigation destinations on hover or touch intent; data-saving connections opt out. Other browsers receive document prefetch hints. Photography's contact sheet/sequence switch also animates each frame. Reduced-motion preferences disable both kinds of animation. Navigation, browser history, anchors, and no-JavaScript links remain native. Browsers without native transition support use ordinary page navigation.
 
 Research and section links work without JavaScript. The portrait uses an 81-pose grid (9 × 9) generated directly from the supplied original PICT_20260903_113453.JPG with LivePortrait, without creating a separately restyled master. The offline model keeps the original source appearance/expression while varying head yaw by ±12 degrees, pitch by ±8 degrees, and eye direction together. These are model-generated approximations; they are not exact untouched photographs or a reconstructed 3D head. The no-JavaScript, reduced-motion, loading and failure fallback is a direct crop of the original photo.
 

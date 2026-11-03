@@ -1,17 +1,40 @@
+import {prepareNavigation} from "./navigation.js";
+
+prepareNavigation();
+
 const gallery = document.querySelector(".gallery");
 if (gallery) {
   document.querySelector("[data-gallery-controls]")?.removeAttribute("hidden");
+  let layoutTransition = null;
+  let desiredLayout = gallery.classList.contains("sequence") ? "sequence" : "index";
   document.querySelectorAll("[data-layout]").forEach((button) => {
     button.addEventListener("click", () => {
-      gallery.classList.toggle(
-        "sequence",
-        button.dataset.layout === "sequence",
-      );
-      document
-        .querySelectorAll("[data-layout]")
-        .forEach((item) =>
-          item.setAttribute("aria-pressed", String(item === button)),
+      if (button.dataset.layout === desiredLayout) return;
+      desiredLayout = button.dataset.layout;
+      const update = () => {
+        gallery.classList.toggle("sequence", desiredLayout === "sequence");
+        document.querySelectorAll("[data-layout]").forEach((item) =>
+          item.setAttribute("aria-pressed", String(item.dataset.layout === desiredLayout)),
         );
+      };
+      if (layoutTransition) {
+        layoutTransition.skipTransition();
+        update();
+        return;
+      }
+      if (!document.startViewTransition || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        update();
+        return;
+      }
+      const items = [...gallery.querySelectorAll(".gallery-item")];
+      items.forEach((item, index) => { item.style.viewTransitionName = `gallery-photo-${index}`; });
+      layoutTransition = document.startViewTransition(update);
+      layoutTransition.ready.catch(() => {});
+      const finish = () => {
+        items.forEach((item) => { item.style.removeProperty("view-transition-name"); });
+        layoutTransition = null;
+      };
+      layoutTransition.finished.then(finish, finish);
     });
   });
   const dialog = document.querySelector(".lightbox");
